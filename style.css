@@ -1,0 +1,123 @@
+/* Custom Styles to complement Tailwind CSS */
+
+/* Custom Radio Button Styling */
+.radio-invisible {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.option-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid #f1f5f9; /* slate-100 */
+}
+
+/* Hover state for unseen items */
+.option-card:hover {
+    border-color: #cbd5e1; /* slate-300 */
+    background-color: #f8fafc; /* slate-50 */
+}
+
+/* Checked state */
+.radio-invisible:checked + .option-card {
+    border-color: #3b82f6; /* blue-500 */
+    background-color: #eff6ff; /* blue-50 */
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1), 0 2px 4px -1px rgba(59, 130, 246, 0.06);
+}
+
+/* Checked state icon change */
+.radio-invisible:checked + .option-card .option-icon {
+    background-color: #3b82f6; /* blue-500 */
+    color: white;
+    border-color: #3b82f6;
+}
+
+/* Error state - missed question */
+.question-error .q-container {
+    border-color: #ef4444; /* red-500 */
+    box-shadow: 0 0 0 1px #ef4444;
+}
+
+/* Review Mode Styles */
+.review-mode .option-card {
+    cursor: default;
+    pointer-events: none;
+}
+
+.review-correct {
+    border-color: #22c55e !important; /* green-500 */
+    background-color: #f0fdf4 !important; /* green-50 */
+}
+
+.review-correct .option-icon {
+    background-color: #22c55e !important;
+    color: white !important;
+    border-color: #22c55e !important;
+}
+
+.review-wrong {
+    border-color: #ef4444 !important; /* red-500 */
+    background-color: #fef2f2 !important; /* red-50 */
+}
+
+.review-wrong .option-icon {
+    background-color: #ef4444 !important;
+    color: white !important;
+    border-color: #ef4444 !important;
+}
+
+
+/* Animations */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.block-anim {
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.slide-up {
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Timer warning state */
+.timer-warning {
+    color: #ef4444 !important; /* text-red-500 */
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
+
+/* Loading spinner */
+.loader {
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid #3498db;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
