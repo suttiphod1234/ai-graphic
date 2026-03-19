@@ -455,7 +455,7 @@ function sendToGoogleSheet(data) {
 
     fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        // mode: 'no-cors', // Important required for GS
+        mode: 'no-cors', // Important required for GS
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
