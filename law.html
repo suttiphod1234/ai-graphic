@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบ - หลักกฎหมายและจริยธรรมในการสร้างงานศิลปะ</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 min-h-screen font-kanit text-slate-800">
+
+    <!-- Header / Banner -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-12 px-4 text-center shadow-lg relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <div class="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-white blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-blue-300 blur-3xl"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">แบบทดสอบ</h1>
+            <p class="text-xl md:text-2xl opacity-90 mb-2">หลักกฎหมายและจริยธรรมในการสร้างงานศิลปะ</p>
+            <div class="flex flex-wrap justify-center gap-4 mt-6 text-sm font-medium">
+                <span class="bg-white/20 px-4 py-2 rounded-full border border-white/30 backdrop-blur-sm">
+                    <i class="bi bi-card-list mr-1"></i> จำนวน 10 ข้อ
+                </span>
+                <span class="bg-white/20 px-4 py-2 rounded-full border border-white/30 backdrop-blur-sm">
+                    <i class="bi bi-star-fill text-yellow-300 mr-1"></i> 10 คะแนน
+                </span>
+                <span class="bg-white/20 px-4 py-2 rounded-full border border-white/30 backdrop-blur-sm">
+                    <i class="bi bi-clock-history mr-1"></i> 15 นาที
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 py-8 -mt-6">
+        <form id="quizForm" class="space-y-6">
+            
+            <!-- User Info Section -->
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-slate-100 relative z-10 block-anim slide-up">
+                <h2 class="text-2xl font-semibold mb-6 flex items-center text-blue-700 border-b border-blue-100 pb-3">
+                    <i class="bi bi-person-badge mr-3 text-3xl"></i> ข้อมูลผู้เข้าอบรม
+                </h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-slate-700 mb-1">ชื่อ-นามสกุล <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="bi bi-person text-slate-400"></i>
+                            </div>
+                            <input type="text" id="fullName" name="fullName" required placeholder="เช่น นายสมชาย ใจดี" 
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-slate-50 focus:bg-white outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div>
+                            <label for="phoneNumber" class="block text-sm font-medium text-slate-700 mb-1">เบอร์โทรศัพท์ <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="bi bi-telephone text-slate-400"></i>
+                                </div>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="เช่น 0812345678" maxlength="10"
+                                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-slate-50 focus:bg-white outline-none">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="age" class="block text-sm font-medium text-slate-700 mb-1">อายุ <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="bi bi-calendar-event text-slate-400"></i>
+                                </div>
+                                <input type="number" id="age" name="age" required placeholder="เช่น 25" min="1" max="100"
+                                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-slate-50 focus:bg-white outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="education" class="block text-sm font-medium text-slate-700 mb-1">ระดับการศึกษา <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="bi bi-mortarboard text-slate-400"></i>
+                            </div>
+                            <select id="education" name="education" required
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-slate-50 focus:bg-white outline-none appearance-none">
+                                <option value="" disabled selected>เลือกระดับการศึกษา</option>
+                                <option value="มัธยมศึกษาตอนต้น">มัธยมศึกษาตอนต้น</option>
+                                <option value="มัธยมศึกษาตอนปลาย/ปวช.">มัธยมศึกษาตอนปลาย/ปวช.</option>
+                                <option value="ปวส./อนุปริญญา">ปวส./อนุปริญญา</option>
+                                <option value="ปริญญาตรี">ปริญญาตรี</option>
+                                <option value="ปริญญาโท">ปริญญาโท</option>
+                                <option value="ปริญญาเอก">ปริญญาเอก</option>
+                                <option value="อื่นๆ">อื่นๆ</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <i class="bi bi-chevron-down text-slate-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quizContainer" class="hidden">
+                
+                <!-- Timer Sticky Bar -->
+                <div id="timerBar" class="sticky top-4 z-40 bg-white/90 backdrop-blur-md px-6 py-4 rounded-full shadow-lg border border-slate-200 flex justify-between items-center mb-8 transition-all block-anim slide-up" style="animation-delay: 0.1s;">
+                    <span class="font-medium text-slate-600">เวลาที่เหลือ</span>
+                    <div class="flex items-center text-blue-600 font-bold text-xl">
+                        <i class="bi bi-stopwatch mr-2"></i>
+                        <span id="timeDisplay">15:00</span>
+                    </div>
+                </div>
+
+                <!-- Questions List -->
+                <div id="questionsList" class="space-y-8">
+                    <!-- Questions will be injected here via JavaScript -->
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-10 text-center pb-12">
+                    <button type="submit" id="submitBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg py-4 px-10 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full md:w-auto flex justify-center items-center mx-auto group">
+                        <span>ส่งคำตอบ</span>
+                        <i class="bi bi-send-fill ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Start Button (shown initially) -->
+            <div id="startSection" class="text-center mt-8 block-anim slide-up" style="animation-delay: 0.2s;">
+                <button type="button" id="startBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold text-lg py-4 px-10 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full md:w-auto inline-flex justify-center items-center">
+                    <i class="bi bi-play-circle-fill mr-2 text-xl"></i> เริ่มทำแบบทดสอบ
+                </button>
+                <p class="text-sm text-slate-500 mt-4"><i class="bi bi-info-circle mr-1"></i> เมื่อกดปุ่ม ระบบจะเริ่มจับเวลาทันที</p>
+            </div>
+            
+        </form>
+    </main>
+
+    <!-- Result Modal (Hidden by default) -->
+    <div id="resultModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="resultModalContent">
+            
+            <div class="bg-blue-600 h-32 relative flex justify-center items-end pb-8">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+                <!-- Status Icon -->
+                <div id="resultIcon" class="absolute -bottom-10 w-20 h-20 bg-white rounded-full flex justify-center items-center shadow-lg border-4 border-blue-600 text-4xl">
+                    <!-- Icon injected by JS -->
+                </div>
+            </div>
+            
+            <div class="p-8 pt-14 text-center">
+                <h3 class="text-2xl font-bold mb-2">สรุปผลการทดสอบ</h3>
+                <p class="text-slate-500 mb-6" id="resultName">คุณ ...</p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                        <p class="text-sm text-slate-500 mb-1">คะแนนที่ได้</p>
+                        <p class="text-3xl font-bold text-blue-600"><span id="scoreDisplay">0</span><span class="text-lg text-slate-400">/10</span></p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                        <p class="text-sm text-slate-500 mb-1">เปอร์เซ็นต์</p>
+                        <p class="text-3xl font-bold text-indigo-600"><span id="percentDisplay">0</span>%</p>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <p class="text-sm text-slate-500 mb-2">ระดับตัวชี้วัด</p>
+                    <div id="gradeBadge" class="inline-block px-6 py-2 rounded-full font-bold text-lg bg-slate-100 text-slate-600">
+                        ประเมินผล
+                    </div>
+                </div>
+                
+                <!-- Loading State / Success Message for Sheet -->
+                <div id="submitStatus" class="mb-6 p-3 rounded-lg text-sm hidden">
+                    <!-- Injected by JS -->
+                </div>
+
+                <div class="space-y-3">
+                    <button class="w-full py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors" id="reviewBtn" type="button">
+                        <i class="bi bi-card-checklist mr-2"></i> ดูคำตอบของคุณ
+                    </button>
+                    <button class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors hidden" id="closeModalBtn" type="button">
+                        ปิดหน้าต่าง
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error/Alert Toast -->
+    <div id="toast" class="fixed top-4 right-4 bg-white px-6 py-4 rounded-xl shadow-xl border-l-4 border-red-500 transform translate-x-full opacity-0 transition-all duration-300 z-[100] flex items-center">
+        <i class="bi bi-exclamation-circle-fill text-red-500 text-xl mr-3"></i>
+        <span id="toastMsg" class="font-medium text-slate-700">กรุณากรอกข้อมูลให้ครบถ้วน</span>
+    </div>
+
+    <script src="law.js"></script>
+</body>
+</html>

@@ -6,111 +6,111 @@ const TIME_LIMIT_MINUTES = 15;
 const quizQuestions = [
     {
         id: 1,
-        question: "AI ย่อมาจากอะไร",
+        question: "ลิขสิทธิ์ (Copyright) คุ้มครองสิ่งใด",
         options: [
-            { id: "A", text: "Auto Image" },
-            { id: "B", text: "Artificial Intelligence" },
-            { id: "C", text: "Advanced Interface" },
-            { id: "D", text: "Automatic Input" }
-        ],
-        answer: "B"
-    },
-    {
-        id: 2,
-        question: "AI สามารถช่วยงานกราฟิกด้านใดได้บ้าง",
-        options: [
-            { id: "A", text: "สร้างภาพ" },
-            { id: "B", text: "แก้ไขภาพ" },
-            { id: "C", text: "ออกแบบ" },
-            { id: "D", text: "ถูกทุกข้อ" }
-        ],
-        answer: "D"
-    },
-    {
-        id: 3,
-        question: "Text-to-Image คืออะไร",
-        options: [
-            { id: "A", text: "แปลงภาพเป็นข้อความ" },
-            { id: "B", text: "แปลงข้อความเป็นภาพ" },
-            { id: "C", text: "แปลงเสียงเป็นภาพ" },
-            { id: "D", text: "แปลงไฟล์" }
-        ],
-        answer: "B"
-    },
-    {
-        id: 4,
-        question: "ข้อใดคือเครื่องมือ AI สำหรับสร้างภาพ",
-        options: [
-            { id: "A", text: "Excel" },
-            { id: "B", text: "Word" },
-            { id: "C", text: "Leonardo AI" },
-            { id: "D", text: "Notepad" }
+            { id: "A", text: "ไอเดีย" },
+            { id: "B", text: "ความคิด" },
+            { id: "C", text: "ผลงานที่สร้างขึ้น" },
+            { id: "D", text: "ข้อมูลทั่วไป" }
         ],
         answer: "C"
     },
     {
-        id: 5,
-        question: "Prompt คืออะไร",
+        id: 2,
+        question: "ข้อใด “ไม่ใช่” การละเมิดลิขสิทธิ์",
         options: [
-            { id: "A", text: "โปรแกรม" },
-            { id: "B", text: "คำสั่งที่ใช้กับ AI" },
-            { id: "C", text: "รูปภาพ" },
-            { id: "D", text: "ฟอนต์" }
+            { id: "A", text: "คัดลอกภาพผู้อื่นไปใช้" },
+            { id: "B", text: "ใช้ภาพโดยไม่ได้รับอนุญาต" },
+            { id: "C", text: "ใช้ภาพที่สร้างเอง" },
+            { id: "D", text: "นำภาพไปขายโดยไม่ได้สิทธิ์" }
+        ],
+        answer: "C"
+    },
+    {
+        id: 3,
+        question: "การนำภาพจากอินเทอร์เน็ตมาใช้ในโฆษณาโดยไม่ขออนุญาต ถือว่า",
+        options: [
+            { id: "A", text: "ถูกต้อง" },
+            { id: "B", text: "ไม่ผิด" },
+            { id: "C", text: "ผิดกฎหมาย" },
+            { id: "D", text: "ขึ้นอยู่กับขนาดภาพ" }
+        ],
+        answer: "C"
+    },
+    {
+        id: 4,
+        question: "PDPA เกี่ยวข้องกับข้อใดมากที่สุด",
+        options: [
+            { id: "A", text: "สีของภาพ" },
+            { id: "B", text: "ข้อมูลส่วนบุคคล" },
+            { id: "C", text: "ความละเอียดภาพ" },
+            { id: "D", text: "โปรแกรมที่ใช้" }
         ],
         answer: "B"
     },
     {
-        id: 6,
-        question: "Prompt ที่ดีควรมีลักษณะอย่างไร",
+        id: 5,
+        question: "ข้อใดเป็นตัวอย่างการละเมิด PDPA",
         options: [
-            { id: "A", text: "สั้น" },
-            { id: "B", text: "คลุมเครือ" },
-            { id: "C", text: "ชัดเจนและมีรายละเอียด" },
-            { id: "D", text: "ไม่มีรูปแบบ" }
+            { id: "A", text: "ใช้ภาพวิวธรรมชาติ" },
+            { id: "B", text: "ใช้ภาพที่สร้างเอง" },
+            { id: "C", text: "ใช้ภาพบุคคลโดยไม่ได้รับอนุญาต" },
+            { id: "D", text: "ใช้ภาพการ์ตูน" }
+        ],
+        answer: "C"
+    },
+    {
+        id: 6,
+        question: "การใช้โลโก้แบรนด์ดังโดยไม่ได้รับอนุญาตเกี่ยวข้องกับกฎหมายใด",
+        options: [
+            { id: "A", text: "ลิขสิทธิ์" },
+            { id: "B", text: "PDPA" },
+            { id: "C", text: "เครื่องหมายการค้า" },
+            { id: "D", text: "ภาษี" }
         ],
         answer: "C"
     },
     {
         id: 7,
-        question: "เครื่องมือใดใช้ลบพื้นหลัง",
+        question: "ข้อใดเป็นแนวทาง “จริยธรรม” ที่ถูกต้อง",
         options: [
-            { id: "A", text: "Remove.bg" },
-            { id: "B", text: "Word" },
-            { id: "C", text: "Excel" },
-            { id: "D", text: "PowerPoint" }
+            { id: "A", text: "คัดลอกผลงานเพื่อความรวดเร็ว" },
+            { id: "B", text: "ไม่ต้องให้เครดิต" },
+            { id: "C", text: "ใช้ผลงานคนอื่นโดยไม่แจ้ง" },
+            { id: "D", text: "ให้เครดิตเจ้าของผลงาน" }
         ],
-        answer: "A"
+        answer: "D"
     },
     {
         id: 8,
-        question: "การ Upscale ภาพ คืออะไร",
+        question: "การใช้ AI สร้างภาพโดยเลียนแบบศิลปินโดยตรง อาจมีความเสี่ยงด้านใด",
         options: [
-            { id: "A", text: "ลดขนาด" },
-            { id: "B", text: "เพิ่มความละเอียด" },
-            { id: "C", text: "ลบภาพ" },
-            { id: "D", text: "แปลงไฟล์" }
+            { id: "A", text: "ไม่มีความเสี่ยง" },
+            { id: "B", text: "ความสวยงาม" },
+            { id: "C", text: "จริยธรรมและลิขสิทธิ์" },
+            { id: "D", text: "ขนาดไฟล์" }
         ],
-        answer: "B"
+        answer: "C"
     },
     {
         id: 9,
-        question: "การใช้ AI อย่างถูกต้องควรทำอย่างไร",
+        question: "ข้อใดเป็นแนวปฏิบัติที่ “เหมาะสม” ในการใช้ AI",
         options: [
-            { id: "A", text: "คัดลอกงานคนอื่น" },
-            { id: "B", text: "ไม่สนใจลิขสิทธิ์" },
-            { id: "C", text: "ตรวจสอบแหล่งที่มา" },
-            { id: "D", text: "ใช้ได้ทันที" }
+            { id: "A", text: "ใช้ภาพโดยไม่ตรวจสอบ" },
+            { id: "B", text: "คัดลอกผลงานผู้อื่น" },
+            { id: "C", text: "ตรวจสอบสิทธิ์ก่อนใช้งาน" },
+            { id: "D", text: "ใช้งานทันทีโดยไม่สนใจ" }
         ],
         answer: "C"
     },
     {
         id: 10,
-        question: "PDPA เกี่ยวข้องกับอะไร",
+        question: "ข้อใดเป็น “จริยธรรมในการใช้ AI”",
         options: [
-            { id: "A", text: "สีภาพ" },
-            { id: "B", text: "ขนาดภาพ" },
-            { id: "C", text: "ข้อมูลส่วนบุคคล" },
-            { id: "D", text: "โปรแกรม" }
+            { id: "A", text: "ใช้เพื่อหลอกลวง" },
+            { id: "B", text: "ใช้เพื่อคัดลอก" },
+            { id: "C", text: "ใช้อย่างรับผิดชอบ" },
+            { id: "D", text: "ใช้เพื่อเลียนแบบ" }
         ],
         answer: "C"
     }
@@ -362,15 +362,15 @@ function calculateScore() {
     let gradeClass = "";
     let iconHtml = "";
 
-    if (percent >= 85) {
+    if (score >= 9) {
         grade = "ดีมาก";
         gradeClass = "bg-green-100 text-green-700";
         iconHtml = '<i class="bi bi-star-fill text-yellow-400"></i>';
-    } else if (percent >= 70) {
+    } else if (score >= 7) {
         grade = "ดี";
         gradeClass = "bg-blue-100 text-blue-700";
         iconHtml = '<i class="bi bi-hand-thumbs-up-fill text-blue-500"></i>';
-    } else if (percent >= 50) {
+    } else if (score >= 5) {
         grade = "พอใช้";
         gradeClass = "bg-yellow-100 text-yellow-700";
         iconHtml = '<i class="bi bi-emoji-smile-fill text-yellow-500"></i>';
@@ -393,7 +393,7 @@ function calculateScore() {
 
     // Send data to Sheet
     const payload = {
-        sheetName: "Pre-test",
+        sheetName: "law",
         timestamp: new Date().toISOString(),
         fullName: DOM.fullName.value.trim(),
         phoneNumber: DOM.phoneNumber.value.trim(),

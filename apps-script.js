@@ -6,11 +6,10 @@
 // 5. สิทธิ์การเข้าถึง: "ทุกคน" (Anyone)
 // 6. กด "ทำให้ใช้งานได้" (Deploy) แล้วคัดลอก Web App URL มาใส่ในไฟล์ script.js ของโปรเจกต์
 
-const SHEET_NAME = 'Pre-test'; // ชื่อชีตที่คุณต้องการเก็บข้อมูล
-
 function doPost(e) {
   try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+    const sheetName = e.parameter.sheetName || 'Pre-test'; // รับชื่อชีตจากพารามิเตอร์ หรือใช้ค่าเริ่มต้น
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
     
     // Create sheet if it doesn't exist
     if (!sheet) {
