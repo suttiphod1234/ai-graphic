@@ -1,5 +1,5 @@
 // --- Configuration ---
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzApF5ChMm05rHHz58GH1xEyXmuKcn_eNttIC6tKpW-fl5ViNxW1Op4houxxKBXv8Oq7Q/exec'; 
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwpp6qE8o_4s3B4wB0ziOTtrbDze5-oYtiNGe7yAtxL10JUeuqEx8c29EFaWNp3s1Tq8A/exec'; 
 const TIME_LIMIT_MINUTES = 15;
 
 // --- Quiz Data ---
