@@ -1,23 +1,23 @@
-// โค้ดสำหรับวางใน Google Apps Script สำหรับแบบทดสอบ Law
-// 1. ไปที่ Google Sheet -> ส่วนขยาย (Extensions) -> Apps Script
-// 2. สร้างไฟล์สคริปต์ใหม่ หรือโปรเจกต์ใหม่ แล้ววางโค้ดนี้ลงไป (ใช้ชื่อไฟล์อะไรก็ได้ หรือกดเปลี่ยนชื่อโปรเจกต์เป็น Law Quiz)
-// 3. กดบันทึก -> กด การทำให้ใช้งานได้ (Deploy) -> การทำให้ใช้งานได้รายการใหม่ (New deployment)
-// 4. เลือกประเภท: เว็บแอป (Web App)
-// 5. สิทธิ์การเข้าถึง: "ทุกคน" (Anyone)
-// 6. กด "ทำให้ใช้งานได้" (Deploy) แล้วนำลิงก์ Web App URL ใหม่ ไปใส่ในไฟล์ law.js
+// โค้ดสำหรับวางใน Google Apps Script สำหรับแบบทดสอบ กฎหมายและจริยธรรม (Law)
+// 1. ไปที่เว็บไซต์ https://script.google.com/
+// 2. กดปุ่ม โครงการใหม่ (New Project) แล้วนำโค้ดนี้ไปวางแทนที่
+// 3. กดบันทึก (รูปแผ่นดิสก์)
+// 4. กด การทำให้ใช้งานได้ (Deploy) -> การทำให้ใช้งานได้รายการใหม่ (New deployment)
+// 5. เลือกประเภท: เว็บแอป (Web App)
+// 6. สิทธิ์การเข้าถึง: "ทุกคน" (Anyone)
+// 7. กด "ทำให้ใช้งานได้" (Deploy) แล้วนำลิงก์ Web App URL ใหม่ ไปใส่ในไฟล์ law.js
 
+const SPREADSHEET_ID = '1YZV-Wysb633ZFyh3EaPjM9x8N4RW-dXwDBvS_QPnKPw'; // ID ของ Google Sheet
 const SHEET_NAME = 'law'; // กำหนดให้บันทึกข้อมูลเฉพาะชีตชื่อ law เท่านั้น
 
 function doPost(e) {
   try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    let sheet = ss.getSheetByName(SHEET_NAME);
     
-    // Create sheet if it doesn't exist
+    // สร้างชีตใหม่ถ้ายังไม่มี
     if (!sheet) {
-      return ContentService.createTextOutput(JSON.stringify({ 
-        result: "error", 
-        error: "Sheet undefined" 
-      })).setMimeType(ContentService.MimeType.JSON);
+      sheet = ss.insertSheet(SHEET_NAME);
     }
     
     // Setup headers if the sheet is empty
@@ -74,7 +74,7 @@ function doPost(e) {
     // Append to sheet
     sheet.appendRow(rowData);
 
-    // Return success response to avoid CORS issues completely on client
+    // Return success response
     return ContentService.createTextOutput(JSON.stringify({ 
       result: "success", 
       row: sheet.getLastRow() 

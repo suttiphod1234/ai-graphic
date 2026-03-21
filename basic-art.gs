@@ -7,18 +7,17 @@
 // 6. สิทธิ์การเข้าถึง: "ทุกคน" (Anyone)
 // 7. กด "ทำให้ใช้งานได้" (Deploy) แล้วคัดลอก Web App URL ใหม่ ไปใส่บรรทัดที่ 2 ในไฟล์ basic-art.js
 
+const SPREADSHEET_ID = '1YZV-Wysb633ZFyh3EaPjM9x8N4RW-dXwDBvS_QPnKPw'; // ID ของ Google Sheet
 const SHEET_NAME = 'basic-art'; // กำหนดให้บันทึกข้อมูลเฉพาะชีตชื่อ basic-art เท่านั้น
 
 function doPost(e) {
   try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    let sheet = ss.getSheetByName(SHEET_NAME);
     
-    // Create sheet if it doesn't exist
+    // สร้างชีตใหม่ถ้ายังไม่มี
     if (!sheet) {
-      return ContentService.createTextOutput(JSON.stringify({ 
-        result: "error", 
-        error: "Sheet undefined" 
-      })).setMimeType(ContentService.MimeType.JSON);
+      sheet = ss.insertSheet(SHEET_NAME);
     }
     
     // Setup headers if the sheet is empty
@@ -75,7 +74,7 @@ function doPost(e) {
     // Append to sheet
     sheet.appendRow(rowData);
 
-    // Return success response to avoid CORS issues completely on client
+    // Return success response
     return ContentService.createTextOutput(JSON.stringify({ 
       result: "success", 
       row: sheet.getLastRow() 

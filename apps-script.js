@@ -1,22 +1,23 @@
-// โค้ดสำหรับวางใน Google Apps Script
-// 1. ไปที่ Google Sheet -> ส่วนขยาย (Extensions) -> Apps Script
-// 2. วางโค้ดนี้ลงไปในแฟ้ม Code.gs
-// 3. กดบันทึก -> กดการทำให้ใช้งานได้ (Deploy) -> การทำให้ใช้งานได้รายการใหม่ (New deployment)
-// 4. เลือกประเภท: เว็บแอป (Web App)
-// 5. สิทธิ์การเข้าถึง: "ทุกคน" (Anyone)
-// 6. กด "ทำให้ใช้งานได้" (Deploy) แล้วคัดลอก Web App URL มาใส่ในไฟล์ script.js ของโปรเจกต์
+// โค้ดสำหรับวางใน Google Apps Script สำหรับ Pre-test
+// 1. ไปที่เว็บไซต์ https://script.google.com/
+// 2. กดปุ่ม โครงการใหม่ (New Project) แล้วนำโค้ดนี้ไปวางแทนที่
+// 3. กดบันทึก (รูปแผ่นดิสก์)
+// 4. กด การทำให้ใช้งานได้ (Deploy) -> การทำให้ใช้งานได้รายการใหม่ (New deployment)
+// 5. เลือกประเภท: เว็บแอป (Web App)
+// 6. สิทธิ์การเข้าถึง: "ทุกคน" (Anyone)
+// 7. กด "ทำให้ใช้งานได้" (Deploy) แล้วคัดลอก Web App URL มาใส่ในไฟล์ script.js ของโปรเจกต์
+
+const SPREADSHEET_ID = '1YZV-Wysb633ZFyh3EaPjM9x8N4RW-dXwDBvS_QPnKPw'; // ID ของ Google Sheet
 
 function doPost(e) {
   try {
     const sheetName = e.parameter.sheetName || 'Pre-test'; // รับชื่อชีตจากพารามิเตอร์ หรือใช้ค่าเริ่มต้น
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    let sheet = ss.getSheetByName(sheetName);
     
-    // Create sheet if it doesn't exist
+    // สร้างชีตใหม่ถ้ายังไม่มี
     if (!sheet) {
-      return ContentService.createTextOutput(JSON.stringify({ 
-        result: "error", 
-        error: "Sheet undefined" 
-      })).setMimeType(ContentService.MimeType.JSON);
+      sheet = ss.insertSheet(sheetName);
     }
     
     // Setup headers if the sheet is empty
@@ -73,7 +74,7 @@ function doPost(e) {
     // Append to sheet
     sheet.appendRow(rowData);
 
-    // Return success response to avoid CORS issues completely on client
+    // Return success response
     return ContentService.createTextOutput(JSON.stringify({ 
       result: "success", 
       row: sheet.getLastRow() 
