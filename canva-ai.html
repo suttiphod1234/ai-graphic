@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบ - หลักสูตรการใช้งาน Canva For Ai</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --canva-purple: #7d2ae8;
+            --canva-blue: #00c4cc;
+            --canva-extralight-purple: #f3ebff;
+        }
+        
+        body {
+            background-color: #f6f9fc;
+        }
+
+        .bg-canva-gradient {
+            background: linear-gradient(135deg, var(--canva-purple) 0%, var(--canva-blue) 100%);
+        }
+        
+        .text-canva-purple { color: var(--canva-purple); }
+        .bg-canva-purple { background-color: var(--canva-purple); }
+        .border-canva-purple { border-color: var(--canva-purple); }
+        
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Custom Radio Styling for Canva */
+        .radio-invisible:checked + .option-card {
+            border-color: var(--canva-purple) !important;
+            background-color: var(--canva-extralight-purple) !important;
+            box-shadow: 0 10px 15px -3px rgba(125, 42, 232, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .radio-invisible:checked + .option-card .option-icon {
+            background-color: var(--canva-purple) !important;
+            color: white !important;
+            border-color: var(--canva-purple) !important;
+        }
+
+        .option-card:hover:not(.review-mode *) {
+            border-color: #d8b4fe;
+            background-color: #faf5ff;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--canva-purple), var(--canva-blue));
+            width: 0%;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Question Transition */
+        .q-container {
+            transition: all 0.3s ease;
+        }
+
+        .question-error {
+            border-color: #ef4444 !important;
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            header { padding: 3rem 1rem !important; }
+            .option-card { padding: 0.75rem !important; }
+            .option-icon { width: 1.75rem !important; height: 1.75rem !important; font-size: 0.875rem; }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 min-h-screen font-kanit text-slate-800">
+
+    <!-- Header / Banner -->
+    <header
+        class="bg-canva-gradient text-white py-16 px-4 text-center shadow-lg relative overflow-hidden">
+        <!-- Floating shapes for design -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+            <div class="absolute top-10 left-10 w-24 h-24 rounded-2xl bg-white/20 rotate-12 blur-sm"></div>
+            <div class="absolute bottom-20 right-20 w-32 h-32 rounded-full bg-blue-300/30 blur-xl"></div>
+            <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-purple-300/20 blur-lg rounded-full"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-bold uppercase tracking-wider mb-6">
+                Online Learning Quiz
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">แบบทดสอบ</h1>
+            <p class="text-xl md:text-2xl opacity-90 mb-2 font-light">หลักสูตรการใช้งาน <span class="font-bold">Canva For Ai</span></p>
+            
+            <div class="flex flex-wrap justify-center gap-3 mt-8 text-xs md:text-sm font-medium">
+                <div class="bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/20 flex items-center">
+                    <i class="bi bi-card-list mr-2 text-lg text-blue-300"></i> 10 ข้อคำถาม
+                </div>
+                <div class="bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/20 flex items-center">
+                    <i class="bi bi-star-fill text-yellow-300 mr-2 text-lg"></i> 10 คะแนนเต็ม
+                </div>
+                <div class="bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm border border-white/20 flex items-center">
+                    <i class="bi bi-clock-history mr-2 text-lg text-green-300"></i> 15 นาที
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 py-8 -mt-10">
+        <form id="quizForm" class="space-y-6">
+
+            <!-- User Info Section -->
+            <div
+                class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl shadow-purple-900/5 border border-slate-100 relative z-10 block-anim slide-up">
+                <h2 class="text-2xl font-bold mb-8 flex items-center text-canva-purple">
+                    <span class="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center mr-4">
+                        <i class="bi bi-person-circle text-2xl"></i>
+                    </span>
+                    ข้อมูลผู้เข้าอบรม
+                </h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <label for="fullName" class="block text-sm font-semibold text-slate-600 mb-2">ชื่อ-นามสกุล <span
+                                class="text-red-500">*</span></label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-purple-600 transition-colors">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <input type="text" id="fullName" name="fullName" required placeholder="กรอกชื่อและนามสกุลของคุณ"
+                                class="w-full pl-11 pr-4 py-4 rounded-2xl border border-slate-200 focus:ring-4 focus:ring-purple-500/10 focus:border-purple-500 transition-all bg-slate-50/50 focus:bg-white outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-slate-600 mb-2">อีเมล (เพื่อรับผลสอบ) <span
+                                class="text-red-500">*</span></label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-purple-600 transition-colors">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <input type="email" id="email" name="email" required placeholder="ตัวอย่าง: name@gmail.com"
+                                class="w-full pl-11 pr-4 py-4 rounded-2xl border border-slate-200 focus:ring-4 focus:ring-purple-500/10 focus:border-purple-500 transition-all bg-slate-50/50 focus:bg-white outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="comment" class="block text-sm font-semibold text-slate-600 mb-2">แสดงความคิดเห็น (ไม่บังคับ)</label>
+                        <div class="relative group">
+                            <div class="absolute top-4 left-4 pointer-events-none text-slate-400 group-focus-within:text-purple-600 transition-colors">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <textarea id="comment" name="comment" rows="3" placeholder="ความรู้สึกหรือข้อเสนอแนะจากการเข้าอบรม..."
+                                class="w-full pl-11 pr-4 py-4 rounded-2xl border border-slate-200 focus:ring-4 focus:ring-purple-500/10 focus:border-purple-500 transition-all bg-slate-50/50 focus:bg-white outline-none"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quizContainer" class="hidden">
+
+                <!-- Sticky Progress & Timer Bar -->
+                <div id="stickyHeader" class="sticky top-4 z-40 space-y-3 mb-8">
+                    <div id="timerBar"
+                        class="bg-white/80 backdrop-blur-xl px-6 py-4 rounded-3xl shadow-xl shadow-slate-200/50 border border-white flex justify-between items-center transition-all block-anim slide-up"
+                        style="animation-delay: 0.1s;">
+                        <div class="flex items-center">
+                            <i class="bi bi-stopwatch-fill text-purple-600 mr-2 text-xl"></i>
+                            <span class="font-bold text-slate-700 text-lg" id="timeDisplay">15:00</span>
+                        </div>
+                        <div class="flex-1 max-w-[150px] ml-6">
+                            <div class="flex justify-between text-[10px] font-bold text-slate-400 uppercase mb-1">
+                                <span>Progress</span>
+                                <span id="progressText">0%</span>
+                            </div>
+                            <div class="progress-container">
+                                <div id="progressBar" class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questions List -->
+                <div id="questionsList" class="space-y-8">
+                    <!-- Questions will be injected here via JavaScript -->
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-10 text-center pb-12">
+                    <button type="submit" id="submitBtn"
+                        class="bg-canva-gradient hover:opacity-90 text-white font-bold text-lg py-4 px-10 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full md:w-auto flex justify-center items-center mx-auto group">
+                        <span>ส่งคำตอบและดูคะแนน</span>
+                        <i class="bi bi-send-fill ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Start Button (shown initially) -->
+            <div id="startSection" class="text-center mt-8 block-anim slide-up" style="animation-delay: 0.2s;">
+                <button type="button" id="startBtn"
+                    class="bg-green-600 hover:bg-green-700 text-white font-bold text-lg py-4 px-10 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full md:w-auto inline-flex justify-center items-center">
+                    <i class="bi bi-play-circle-fill mr-2 text-xl"></i> เริ่มทำแบบทดสอบ
+                </button>
+                <p class="text-sm text-slate-500 mt-4"><i class="bi bi-info-circle mr-1"></i> เมื่อกดปุ่ม
+                    ระบบจะเริ่มจับเวลาทันที</p>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- Result Modal (Hidden by default) -->
+    <div id="resultModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden transform scale-95 opacity-0 transition-all duration-300"
+            id="resultModalContent">
+
+            <div class="bg-canva-gradient h-32 relative flex justify-center items-end pb-8">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+                <!-- Status Icon -->
+                <div id="resultIcon"
+                    class="absolute -bottom-10 w-20 h-20 bg-white rounded-full flex justify-center items-center shadow-lg border-4 border-purple-600 text-4xl">
+                    <!-- Icon injected by JS -->
+                </div>
+            </div>
+
+            <div class="p-8 pt-14 text-center">
+                <h3 class="text-2xl font-bold mb-2">สรุปผลการทดสอบ</h3>
+                <p class="text-slate-500 mb-6" id="resultName">คุณ ...</p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                        <p class="text-sm text-slate-500 mb-1">คะแนนที่ได้</p>
+                        <p class="text-3xl font-bold text-purple-600"><span id="scoreDisplay">0</span><span
+                                class="text-lg text-slate-400">/10</span></p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                        <p class="text-sm text-slate-500 mb-1">เปอร์เซ็นต์</p>
+                        <p class="text-3xl font-bold text-indigo-600"><span id="percentDisplay">0</span>%</p>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <p class="text-sm text-slate-500 mb-2">ระดับตัวชี้วัด</p>
+                    <div id="gradeBadge"
+                        class="inline-block px-6 py-2 rounded-full font-bold text-lg bg-slate-100 text-slate-600">
+                        ประเมินผล
+                    </div>
+                </div>
+
+                <!-- Loading State / Success Message for Sheet -->
+                <div id="submitStatus" class="mb-6 p-3 rounded-lg text-sm hidden">
+                    <!-- Injected by JS -->
+                </div>
+
+                <div class="space-y-3">
+                    <button
+                        class="w-full py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
+                        id="reviewBtn" type="button">
+                        <i class="bi bi-card-checklist mr-2"></i> ดูคำตอบของคุณ
+                    </button>
+                    <button
+                        class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-medium transition-colors hidden"
+                        id="closeModalBtn" type="button">
+                        ปิดหน้าต่าง
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error/Alert Toast -->
+    <div id="toast"
+        class="fixed top-4 right-4 bg-white px-6 py-4 rounded-xl shadow-xl border-l-4 border-red-500 transform translate-x-full opacity-0 transition-all duration-300 z-[100] flex items-center">
+        <i class="bi bi-exclamation-circle-fill text-red-500 text-xl mr-3"></i>
+        <span id="toastMsg" class="font-medium text-slate-700">กรุณากรอกข้อมูลให้ครบถ้วน</span>
+    </div>
+
+    <script src="canva-ai.js"></script>
+</body>
+
+</html>
